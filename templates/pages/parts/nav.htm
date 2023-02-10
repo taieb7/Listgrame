@@ -1,0 +1,115 @@
+{% load static %}
+
+<header class="header transparent scroll-hide">
+    <!--Main Menu starts-->
+    <div class="site-navbar-wrap v2">
+        <div class="container">
+            <div class="site-navbar">
+                <div class="row align-items-center">
+                    <div class="col-md-4 col-6">
+                        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo-red.png'%}"
+                                alt="logo" class="img-fluid"></a>
+                    </div>
+                    <div class="col-md-8 col-6">
+
+
+
+
+                        <nav class="site-navigation float-left">
+                            <div class="container">
+                                <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                    <li class="">
+                                        <a href="{% url 'index' %}">Home</a>
+
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="#">Listings</a>
+                                        <ul class="dropdown">
+
+                                            <li class="has-children">
+                                                <a href="#">Category Listings</a>
+                                                <ul class="dropdown sub-menu">
+                                                    <li><a href="{% url 'allCategory' %}">All Category</a></li>
+                                                    <li><a href="{% url 'alllocation' %}">All Locations</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a href="#">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="{% url 'about' %}">About us</a></li>
+                                            <li><a href="{% url 'contact' %}">Contact us</a></li>
+                                            <li><a href="404-page.html">404 error</a></li>
+                                            <li><a href="{% url 'addlisting' %}">Add Listing</a></li>
+                                            <li><a href="booking.html">Booking Page</a></li>
+                                            <li><a href="booking-confirmation.html">Booking Confirmation</a></li>
+
+
+                                        </ul>
+                                    </li>
+                                    {% if user.is_authenticated %}
+                                    {% if user.is_superuser %}
+                                    <li class="">
+                                        <a href="{% url 'Dashboard' %}">Dashboard</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="">
+                                        <a href="{% url 'user_profile'%}">{{user.username}} profile</a>
+
+                                    </li>
+
+                                    {% endif %}
+                                    <li class="">
+                                        <a href="{% url 'logout' %}">logout</a>
+                                    </li>
+                                    {% else %}
+                                    <li class="">
+                                        <a href="{% url 'Register'%}">Register</a>
+
+                                    </li>
+                                    <li class="">
+                                        <a href="{% url 'login' %}">login</a>
+                                    </li>
+                                    {% endif %}
+                                    <li class="d-lg-none"><a class="btn v1" href="{% url 'addlisting' %}">Add Listing <i
+                                                class="ion-plus-round"></i></a></li>
+                                </ul>
+                            </div>
+                        </nav>
+
+
+
+
+
+                        <div class="d-lg-none sm-right">
+                            <a href="#" class="mobile-bar js-menu-toggle">
+                                <span class="ion-android-menu"></span>
+                            </a>
+                        </div>
+                        {% if user.is_authenticated %}
+
+                        <div class="add-list float-right">
+                            <a class="btn v8" href="{% url 'addlisting' %}">Add Listing <i
+                                    class="ion-plus-round"></i></a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+            <!--mobile-menu starts -->
+            <div class="site-mobile-menu">
+                <div class="site-mobile-menu-header">
+                    <div class="site-mobile-menu-close  js-menu-toggle">
+                        <span class="ion-ios-close-empty"></span>
+                    </div>
+                </div>
+                <div class="site-mobile-menu-body"></div>
+            </div>
+            <!--mobile-menu ends-->
+        </div>
+    </div>
+    <!--Main Menu ends-->
+</header>

@@ -1,0 +1,142 @@
+{% load static%}
+
+
+<header class="db-top-header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-9 col-sm-6 col-4">
+                <div class="site-navbar-wrap v2">
+                    <div class="site-navbar">
+                        <div class="row align-items-center">
+
+
+                            <nav class="site-navigation float-left">
+                                <div class="container">
+                                    <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                        <li class="">
+                                            <a href="{% url 'index' %}">Home</a>
+
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="#">Listings</a>
+                                            <ul class="dropdown">
+
+                                                <li class="has-children">
+                                                    <a href="#">Category Listings</a>
+                                                    <ul class="dropdown sub-menu">
+                                                        <li><a href="{% url 'allCategory' %}">All Category</a></li>
+                                                        <li><a href="{% url 'alllocation' %}">All Locations</a></li>
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <a href="#">Pages</a>
+                                            <ul class="dropdown">
+                                                <li><a href="{% url 'about' %}">About us</a></li>
+                                                <li><a href="{% url 'contact' %}">Contact us</a></li>
+                                                <li><a href="404-page.html">404 error</a></li>
+                                                <li><a href="{% url 'addlisting' %}">Add Listing</a></li>
+                                                <li><a href="booking.html">Booking Page</a></li>
+                                                <li><a href="booking-confirmation.html">Booking Confirmation</a></li>
+                                                <li><a href="{% url 'login' %}">Login</a></li>
+
+
+                                            </ul>
+                                        </li>
+
+                                        <li class="d-lg-none"><a class="btn v1" href="{% url 'addlisting' %}">Add
+                                                Listing <i class="ion-plus-round"></i></a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+
+
+
+                            <div class="d-lg-none sm-right">
+                                <a href="#" class="mobile-bar js-menu-toggle">
+                                    <span class="ion-android-menu"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="site-mobile-menu">
+                        <div class="site-mobile-menu-header">
+                            <div class="site-mobile-menu-close  js-menu-toggle">
+                                <span class="ion-ios-close-empty"></span>
+                            </div>
+                        </div>
+                        <div class="site-mobile-menu-body"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-8">
+                <div class="header-button">
+                    <div class="header-button-item  js-item-menu">{{count_notifications}}
+                        <i class="ion-ios-bell-outline"></i>
+                        <div class="notifi-dropdown js-dropdown">
+                            <div class="notifi__title">
+                                <p>You have 2 Notifications</p>
+                            </div>
+                            <div class="notifi__item">
+                                <div class="bg-c1 red">
+                                    <i class="icofont-check"></i>
+                                </div>
+                                <div class="content">
+                                    <p>Your listing <b>Hotel Ocean Paradise</b> has been approved!</p>
+                                    <span class="date">5min ago</span>
+                                </div>
+                            </div>
+                            <div class="notifi__item">
+                                <div class="bg-c1 green">
+                                    <i class="icofont-ui-message"></i>
+                                </div>
+                                <div class="content">
+                                    <p>You have 3 unread Messages</p>
+                                    <span class="date">5min ago</span>
+                                </div>
+                            </div>
+                            <div class="notify-bottom text-center pad-tb-20">
+                                <a href="#">View All Notification</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-button-item js-sidebar-btn">
+                        <img src="{% static 'images/clients/reviewer-4.png' %}" alt="...">
+                        <span>Steve <i class="ion-arrow-down-b"></i></span>
+                    </div>
+                    <div class="setting-menu js-right-sidebar d-none d-lg-block">
+                        <div class="account-dropdown__body">
+                            <div class="account-dropdown__item">
+                                <a href="{% url 'Dashboard' %}">
+                                    <i class="ion-ios-gear-outline"></i>Dashboard</a>
+                            </div>
+                            <div class="account-dropdown__item">
+                                <a href="{% url 'my_listing' %}">
+                                    <i class="ion-social-buffer-outline"></i>Listings</a>
+                            </div>
+
+                            <div class="account-dropdown__item">
+                                <a href="{% url 'Reviews' %}">
+                                    <i class="ion-ios-star-outline"></i>Reviews</a>
+                            </div>
+                            <div class="account-dropdown__item">
+                                <a href="db-messages.html">
+                                    <i class="ion-ios-email-outline"></i>Inbox</a>
+                            </div>
+                            <div class="account-dropdown__item">
+                                <a href="{% url 'my_profile' %}">
+                                    <i class="ion-ios-person-outline"></i>Profile</a>
+                            </div>
+                            <div class="account-dropdown__item">
+                                <a href="{% url 'logout' %}">
+                                    <i class="ion-ios-upload-outline"></i>Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

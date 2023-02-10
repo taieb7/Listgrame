@@ -1,0 +1,356 @@
+ {% extends 'pages/parts2/base2.htm' %} {% load static %} {% block content %}
+
+<body>
+    <div class="breadcrumb-section" style="background-image: url('{% static 'images/breadcrumb/breadcrumb-2.jpg'%}')" ;>
+        <div class="overlay op-5"></div>
+        <div class="container">
+            <div class="row align-items-center  pad-top-80">
+                <div class="col-md-6 col-12">
+                    <div class="breadcrumb-menu">
+                        <h2 class="page-title">About us</h2>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="breadcrumb-menu text-right sm-left">
+                        <ul>
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">About us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumb section ends-->
+    <!--About section starts-->
+    <div class="about-section section-padding pad-bot-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-text res-box">
+                        <span>About Us</span>
+                        <h2>Best Deals in One Place</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur quasi natus quia facilis corporis quibusdam ut non laudantium recusandae fugiat rerum ab aliquid accusamus cumque quae, illum id voluptatem ducimus.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-img">
+                        <img src="{% static 'images/about/about.png' %}" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--About section ends-->
+    <!--Counter section starts-->
+    <div class="counter-section bg-xs" style="background-image: url('{% static 'images/category/11.jpg' %}')" ;>
+        <div class="overlay op-5"></div>
+        <div class="container">
+            <div class="row pad-tb-90">
+                <div class="col-md-3 col-6">
+                    <div class="counter-text">
+                        <i class="icofont-thumbs-up"></i>
+                        <h6 class="counter-value">100
+                        </h6>
+                        <p> Happy Customers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="counter-text">
+                        <i class="icofont-street-view"></i>
+                        <h6 class="counter-value">250</h6>
+                        <p>New Places everyday</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="counter-text">
+                        <i class="icofont-address-book"></i>
+                        <h6 class="counter-value">150</h6>
+                        <p>New Listings everyday</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="counter-text">
+                        <i class="icofont-island-alt"></i>
+                        <h6 class="counter-value">1500</h6>
+                        <p> Unique places &amp; events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Counter section ends-->
+    <!--Work-process starts-->
+    <div class="work-process pad-bot-90 section-padding" style="background-image: url(images/others/dots-bg.svg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h2 class="section-title v1">See How It Works</h2>
+                </div>
+                <div class="col-md-4">
+                    <div class="work-process-content v1 text-center">
+                        <div class="process-icon v1">
+                            <img src="{% static 'images/others/1.png' %}" alt="...">
+                            <span>1</span>
+                        </div>
+                        <h4 class="title">Explore The City</h4>
+                        <p class="info">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique iste aliquam possimus, quaerat aut veritatis minima atque quam. Placeat, molestiae?
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="work-process-content v1 text-center">
+                        <div class="process-icon v1">
+                            <img src=" {% static 'images/others/2.png' %} " alt="...">
+
+                            <span>2</span>
+
+                        </div>
+                        <h4 class="title">Find The Best Place</h4>
+                        <p class="info">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique iste aliquam possimus, quaerat aut veritatis minima atque quam. Placeat, molestiae?
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="work-process-content v1 text-center">
+                        <div class="process-icon v1">
+                            <img src="{% static 'images/others/3.png' %}" alt="... ">
+
+                            <span>3</span>
+                        </div>
+                        <h4 class="title ">Add Your Listing</h4>
+                        <p class="info ">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique iste aliquam possimus, quaerat aut veritatis minima atque quam. Placeat, molestiae?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Work-process ends-->
+    <!--Team section starts-->
+    <div class="team-section pad-bot-70 pad-top-40 ">
+        <div class="container ">
+            <div class="row mar-top-30 ">
+                <div class="col-md-8 offset-md-2 text-center ">
+                    <h2 class="section-title v1 ">Creative Leaders</h2>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="team-wrapper swiper-container ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide single-team-member text-center ">
+                                <img src="{% static 'images/team/team-member-1.jpg ' %}" alt="Image ">
+                                <div class="single-team-info text-center ">
+                                    <h4>Amanda Gordon</h4>
+                                    <span>Founder &amp; CEO</span>
+                                    <div class="social-link style1 ">
+                                        <ul class="social-buttons style2 ">
+                                            <li><a href="# "><i class="ion-social-facebook "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-twitter "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-pinterest "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-youtube "></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-team-member text-center ">
+                                <img src="{% static 'images/team/team-member-2.jpg ' %}" alt="Image ">
+                                <div class="single-team-info text-center ">
+                                    <h4>Nick jones</h4>
+                                    <span>Creative Director</span>
+                                    <div class="social-link style1 ">
+                                        <ul class="social-buttons style2 ">
+                                            <li><a href="# "><i class="ion-social-facebook "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-twitter "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-pinterest "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-youtube "></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-team-member text-center ">
+                                <img src="{% static 'images/team/team-member-3.jpg ' %}" alt="Image ">
+                                <div class="single-team-info text-center ">
+                                    <h4>Salt bae</h4>
+                                    <span>CMO</span>
+                                    <div class="social-link style1 ">
+                                        <ul class="social-buttons style2 ">
+                                            <li><a href="# "><i class="ion-social-facebook "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-twitter "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-pinterest "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-youtube "></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-team-member text-center ">
+                                <img src="{% static 'images/team/team-member-5.jpg ' %}" alt="Image ">
+                                <div class="single-team-info text-center ">
+                                    <h4>Tony Stark</h4>
+                                    <span>Founder &amp; CEO</span>
+                                    <div class="social-link style1 ">
+                                        <ul class="social-buttons style2 ">
+                                            <li><a href="# "><i class="ion-social-facebook "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-twitter "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-pinterest "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-youtube "></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-team-member text-center ">
+                                <img src="{% static 'images/team/team-member-4.jpg ' %}" alt="Image ">
+                                <div class="single-team-info text-center ">
+                                    <h4>Jenifar Thang</h4>
+                                    <span>Founder &amp; CEO</span>
+                                    <div class="social-link style1 ">
+                                        <ul class="social-buttons style2 ">
+                                            <li><a href="# "><i class="ion-social-facebook "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-twitter "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-pinterest "></i></a></li>
+                                            <li><a href="# "><i class="ion-social-youtube "></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-btn v1 team-next "><i class="ion-arrow-right-c "></i></div>
+                    <div class="slider-btn v1 team-prev "><i class="ion-arrow-left-c "></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Team section ends-->
+    <!--Testimonial Section start-->
+    <div class="hero-client-section pad-bot-70 mar-top-10 section-padding ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-8 offset-md-2 text-center ">
+                    <h2 class="section-title v1 ">People Talking About Us</h2>
+                </div>
+                <div class="col-md-12 mar-bot-70 ">
+                    <div class="testimonial-wrapper swiper-container ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide single-testimonial-item ">
+                                <div class="testimonial-img text-center ">
+                                    <img src="{% static 'images/clients/client_1.jpg' %} " alt="... ">
+                                </div>
+                                <div class="testimonial-content text-center ">
+                                    <ul class="product-rating ">
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                    </ul>
+                                    <h5>Frank Jane</h5>
+                                    <span>CEO, Bloomberg</span>
+                                    <p>Lorem ipsum dolor adipisicing elit.iusto at laborum hic qui, minus, quasi modi assumenda quis corrupti.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-testimonial-item ">
+                                <div class="testimonial-img text-center ">
+                                    <img src="{% static 'images/clients/client_3.jpg' %}" alt="... ">
+                                </div>
+                                <div class="testimonial-content text-center ">
+                                    <ul class="product-rating ">
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                    </ul>
+                                    <h5>Amanda Gordon</h5>
+                                    <span>CMO, TechTelsa</span>
+                                    <p>Lorem ipsum dolor adipisicing elit.iusto at laborum hic qui, minus, quasi modi assumenda quis corrupti.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-testimonial-item ">
+                                <div class="testimonial-img text-center ">
+                                    <img src="{% static 'images/clients/client_2.jpg' %}" alt="... ">
+                                </div>
+                                <div class="testimonial-content text-center ">
+                                    <ul class="product-rating ">
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                    </ul>
+                                    <h5>Lee Priest</h5>
+                                    <span>MD, Cornia Inc</span>
+                                    <p>Lorem ipsum dolor adipisicing elit.iusto at laborum hic qui, minus, quasi modi assumenda quis corrupti.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide single-testimonial-item ">
+                                <div class="testimonial-img text-center ">
+                                    <img src="{% static 'images/clients/client_4.jpg '%}" alt="... ">
+                                </div>
+                                <div class="testimonial-content text-center ">
+                                    <ul class="product-rating ">
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                        <li><i class="ion-android-star-half "></i></li>
+                                    </ul>
+                                    <h5>Mark Henry</h5>
+                                    <span>CEO, Alpha Inc</span>
+                                    <p>Lorem ipsum dolor adipisicing elit.iusto at laborum hic qui, minus, quasi modi assumenda quis corrupti.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-pagination "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Testimonial Section ends-->
+    <!--Partner section starts-->
+    <div class="partner-section style1 pad-top-60 pad-bot-80 ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-12 ">
+                    <div class="swiper-container partner-wrap ">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide single-partner ">
+                                <img src="{% static 'images/partners/1.png ' %}" alt="... ">
+                            </div>
+                            <div class="swiper-slide single-partner ">
+                                <img src="{% static 'images/partners/2.png ' %}" alt="... ">
+                            </div>
+                            <div class="swiper-slide single-partner ">
+                                <img src="{% static 'images/partners/3.png ' %}" alt="... ">
+                            </div>
+                            <div class="swiper-slide single-partner ">
+                                <img src="{% static 'images/partners/4.png ' %}" alt="... ">
+                            </div>
+                            <div class="swiper-slide single-partner ">
+                                <img src="{% static 'images/partners/5.png ' %}" alt="... ">
+                            </div>
+                            <div class="swiper-slide single-partner ">
+                                <img src="{% static 'images/partners/6.png ' %}" alt="... ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-btn v1 partner-next "><i class="ion-ios-arrow-right "></i></div>
+                    <div class="slider-btn v1 partner-prev "><i class="ion-ios-arrow-left "></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span class="scrolltotop "><i class="ion-arrow-up-c "></i></span>
+
+    </div>
+
+
+
+
+</body>
+
+{% endblock content %}

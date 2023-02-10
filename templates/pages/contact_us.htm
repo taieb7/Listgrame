@@ -1,0 +1,112 @@
+{% extends 'pages/parts/base.htm' %} {% load static %} {% block content %}
+
+<body>
+
+
+    <div class="contact-section v1 section-padding">
+        <div class="container-fluid px-0">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="contact-map v1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-12">
+                    <h3>Write to us</h3>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-control-wrap">
+                            <div id="message" class="alert alert-danger alert-dismissible fade"></div>
+
+                            <div class="form-group mar-top-40">
+                                {{form.email}}
+                            </div>
+                            <div class="form-group mar-top-60">
+                                {{form.message}}
+                            </div>
+                            <div class="form-group mar-top-40">
+                                <button type="submit" class="btn v7">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-12">
+                    <div class="contact-widget sidebar-widget res-box mar-bot-30">
+                        <h3>Our Office</h3>
+                        <img src="{% static 'images/others/office.jpg'%} " alt="...">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga deserunt ea, eius, adipisci
+                            ipsa facilis.</p>
+                    </div>
+                    <div class="sidebar-widget mar-bot-0">
+                        <div class="business-time">
+                            <div class="business-title">
+                                <h6><i class="ion-android-alarm-clock"></i> Business Hours</h6>
+                                <span class="float-right">Open Now</span>
+                            </div>
+                            <ul class="business-hours">
+                                <li class="business-open">
+                                    <span class="day">Saturday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">11:00 am</span> - <span class="time">06:00 pm</span>
+                                    </div>
+                                </li>
+                                <li class="business-open trend-closed">
+                                    <span class="day">Sunday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">Closed</span>
+                                    </div>
+                                </li>
+                                <li class="business-open">
+                                    <span class="day">Monday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">10:00 am</span> - <span class="time">06:00 pm</span>
+                                    </div>
+                                </li>
+                                <li class="business-open">
+                                    <span class="day">Tuesday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">10:00 am</span> - <span class="time">06:30 pm</span>
+                                    </div>
+                                </li>
+                                <li class="business-open">
+                                    <span class="day">Wednesday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">09:00 am</span> - <span class="time">05:00 pm</span>
+                                    </div>
+                                </li>
+                                <li class="business-open">
+                                    <span class="day">Thursday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">10:00 am</span> - <span class="time">07:00 pm</span>
+                                    </div>
+                                </li>
+                                <li class="business-open">
+                                    <span class="day">Friday</span>
+                                    <div class="atbd_open_close_time">
+                                        <span class="time">11:00 am</span> - <span class="time">06:00 pm</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contact section ends-->
+    <!-- Scroll to top starts-->
+    <span class="scrolltotop"><i class="ion-arrow-up-c"></i></span>
+    <!-- Scroll to top ends-->
+    </div>
+    <!--Page Wrapper ends-->
+    <!--Footer Starts-->
+
+</body>
+{% endblock content %}
+
+<!-- Mirrored from demo.lion-coders.com/html/listagram/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 13:49:04 GMT -->

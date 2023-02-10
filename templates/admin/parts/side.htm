@@ -1,0 +1,73 @@
+{% load static %}
+
+
+<aside class="menu-sidebar js-right-sidebar d-block d-lg-none">
+    <div class="logo">
+        <a href="#">
+            <img src="{% static 'images/logo-black.png'%}" alt="Listagram" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar2">
+        <div class="account-img">
+            <img src="{% static 'images/clients/reviewer-4.png'%}" alt="Steve Austin" />
+        </div>
+        <h4 class="name">Howdy, Steve!</h4>
+        <nav class="navbar-sidebar2">
+            <ul class="list-unstyled navbar__list">
+                <li>
+                    <a class="{% if request.resolver_match.url_name == 'Dashboard' %}active{% endif %}"
+                        href="{% url 'Dashboard' %}">
+                        <i class="ion-ios-gear-outline"></i>Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a class="{% if request.resolver_match.url_name == 'my_listing' %}active{% endif %}"
+                        href="{% url 'my_listing' %}">
+                        <i class="ion-social-buffer-outline"></i>My Listings
+                    </a>
+
+                </li>
+
+
+                <li>
+                    <a href="{% url 'inbox' %}"
+                        class="{% if request.resolver_match.url_name == 'inbox' %}active{% endif %}">
+                        <i class="ion-ios-email-outline"></i>Inbox</a>
+                    {% if count_notifications %}
+
+                    <span class="inbox-num pending">{{count_notifications}}</span>
+                    {% endif %}
+
+                </li>
+
+                <li>
+                    <a href="{% url 'favourites' %}"
+                        class="{% if request.resolver_match.url_name == 'favourites' %}active{% endif %}">
+                        <i class="ion-ios-heart-outline "></i>Favourites</a>
+                </li>
+                <li>
+                    <a href="{% url 'add_listing' %}"
+                        class="{% if request.resolver_match.url_name == 'add_listing' %}active{% endif %}">
+                        <i class="ion-ios-plus-outline"></i>Add Listings</a>
+                </li>
+                <li class="">
+                    <a class="{% if request.resolver_match.url_name == 'Reviews' %}active{% endif %}"
+                        href="{% url 'Reviews' %}">
+                        <i class="ion-ios-star-outline"></i>Reviews
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{% url 'my_profile' %}"
+                        class="{% if request.resolver_match.url_name == 'my_profile' %}active{% endif %}">
+                        <i class="ion-ios-person-outline"></i>My profile</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}"
+                        class="{% if request.resolver_match.url_name == 'logout' %}active{% endif %}">
+                        Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

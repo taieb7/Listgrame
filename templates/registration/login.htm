@@ -1,0 +1,151 @@
+{% extends 'pages/parts2/base2.htm' %} {% load static %} {% block content %}
+
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+
+    <!-- Mirrored from demo.lion-coders.com/html/listagram/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 13:53:50 GMT -->
+    <!-- Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!-- /Added by HTTrack -->
+
+
+
+    <body>
+        <!--Page Wrapper starts-->
+        <div class="page-wrapper">
+            <!--header starts-->
+
+            <div class="user-login-section section-padding bg-fixed"
+                style="background-image: url('{% static 'images/header/hero-5.jpg' %}')" ;>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1  text-center">
+                            <div class="login-wrapper">
+                                <ul class="ui-list nav nav-tabs justify-content-center mar-bot-30" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="/login" role="tab"
+                                            aria-selected="true">Login</a>
+                                        {% if messages %} {% for message in messages %}
+                                        <div class="alert alert-{{message.tags}}">{{message}}
+
+                                        </div>
+                                        {%endfor%} {% endif %}
+                                        <div>
+                                            {% if msgg %}
+                                            {{ msgg | safe }}
+
+                                            {% endif %}
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+
+                                <div class="ui-dash tab-content">
+                                    <div class="tab-pane fade show active" id="login" role="tabpanel">
+
+                                        <form id="login-form" action="#" method="post">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <input type="text" name="username" id="username" tabindex="1"
+                                                    class="form-control" placeholder="username" value="" required>
+
+                                            </div>
+                                            <div class="input-group">
+                                                <input tabindex="2" placeholder="Password" type="password"
+                                                    name="password" id="password" class="form-control"
+                                                    data-toggle="password">
+
+                                                <div class="input-group-append">
+
+                                                    <span class="input-group-text">
+
+                                                        <i id="togglePassword" class="fa fa-eye"></i>
+
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            <!-- An element to toggle between password visibility -->
+
+
+
+
+
+
+
+                                    </div>
+                                    <div class="row mar-top-20">
+                                        <div class="col-md-6 col-12 text-left">
+
+                                        </div>
+                                        <div class="col-md-6 col-12 text-right">
+                                            <div class="res-box sm-left">
+                                                <a href="#" tabindex="5" class="forgot-password">Forgot
+                                                    Password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="res-box text-center mar-top-30">
+                                        <button type="submit" class="btn v3"><i class="ion-log-in"></i> Log
+                                            In</button>
+                                    </div>
+                                    </form>
+
+
+
+
+
+                                    <div class="social-profile-login text-center mar-top-30">
+                                        <h5>or Login with</h5>
+                                        <ul class="social-btn">
+                                            <li class="bg-fb"><a href="#"><i class="ion-social-facebook"></i></a>
+                                            </li>
+                                            <li class="bg-tt"><a href="#"><i class="ion-social-twitter"></i></a>
+                                            </li>
+                                            <li class="bg-ig"><a href="#"><i class="ion-social-instagram"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--User login section ends-->
+        <!--Login section ends-->
+        <!-- Scroll to top starts-->
+        <span class="scrolltotop"><i class="ion-arrow-up-c"></i></span>
+        <!-- Scroll to top ends-->
+        </div>
+
+
+        <script>
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+            togglePassword.addEventListener('click', () =>
+            {
+                const type = password
+                    .getAttribute('type') === 'password' ?
+                    'text' : 'password';
+                password.setAttribute('type', type);
+            });
+        </script>
+
+        <!--Scripts ends-->
+    </body>
+
+
+    <!-- Mirrored from demo.lion-coders.com/html/listagram/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 13:53:50 GMT -->
+
+</html>
+{% endblock content %}

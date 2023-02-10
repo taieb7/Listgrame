@@ -1,0 +1,884 @@
+{% extends 'pages/parts2/base2.htm' %} {% load static %} {% block content %}
+
+
+
+<body>
+    <div class="breadcrumb-section" style="background-image: url('{% static 'images/breadcrumb/breadcrumb-1.jpg'%}')" ;>
+        <div class="overlay op-5"></div>
+        <div class="container">
+            <div class="row align-items-center  pad-top-80">
+                <div class="col-md-6 col-12">
+                    <div class="breadcrumb-menu">
+                        <h2 class="page-title">Add Listing</h2>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="breadcrumb-menu text-right sm-left">
+                        <ul>
+                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'addlisting' %}">Add Listing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--Add Listing ends-->
+    <div class="list-details-section section-padding add_list pad-top-90">
+        <div class="container">
+            <div class="row">
+
+
+
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs list-details-tab">
+                        <li class="nav-item active">
+                            <a data-toggle="tab" href="#general_info">General Information</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a data-toggle="tab" href="#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="tab" href="#location">Location /Contacts<span class="text-grey"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="tab" href="#open_time">Business Hours</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a data-toggle="tab" href="#social_network">Social Networks <span
+                                    class="text-grey"></span></a>
+                        </li>
+                    </ul>
+                    <form method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                        <div class="tab-content mar-tb-30 add_list_content">
+                            <div class="tab-pane fade show active" id="general_info">
+                                <h4> <i class="ion-ios-information"></i> General Information :</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Listing Title</label> {{form.Listing_Title}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Category</label> {{form.Category}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Keywords</label> {{form.Keywords}}
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Address</label>{{form.Address}}
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="row">
+
+
+                                    <div class="col-md-12">
+
+                                        <div class="form-group">
+                                            <label for="list_info">Description</label> {{form.Description}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Features</label> {{form.Features}}
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <a href="#" class="btn v7 mar-top-20">Add Facts</a>
+                                </div>
+
+
+
+                            </div>
+                            <div class="tab-pane fade" id="gallery">
+                                <h4><i class="ion-image"></i> Gallery :</h4>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="add-listing__input-file-box">
+                                            {{form.Gallery}}
+                                            <div class="add-listing__input-file-wrap">
+                                                <i class="ion-ios-cloud-upload"></i>
+                                                <p>Click here to upload your images</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-btn">
+                                    <a href="#" class="btn v8 mar-top-20">Add Images</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="location">
+                                <h4><i class="ion-ios-location"></i> Location/Contacts :</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class=" mb-3">
+                                                <label>Select City</label> {{form.city}}
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>State</label> {{form.State}}
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Zip Code</label> {{form.Zip_Code}}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>
+                                                Longitude (Drag marker on the map)</label> {{form.Longitude}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>
+                                                Latitude (Drag marker on the map) </label> {{form.Latitude}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 no-padding">
+                                        <div id="map"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mar-top-15">
+                                            <label>Website </label> {{form.Website}}
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mar-top-15">
+                                            <label>Phone </label> {{form.Phone}}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        <a href="#" class="btn v7 mar-top-20">Add Facts</a>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="tab-pane fade" id="open_time">
+                                <h4><i class="ion-clock"></i> Opening/Business Hours :</h4>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Monday</label>
+                                    </div>
+                                    <div class="col-md-5">
+
+
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Monday_open">
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+                                        </select>
+
+
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Monday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Tuesday</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Tuesday_open">
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Tuesday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Wednesday</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Wednesday_open">
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Wednesday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Thursday</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Thursday_open">
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Thursday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Friday</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name=Friday_open>
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Friday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Saturday</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Saturday_open">
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Saturday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row mar-bot-30">
+                                    <div class="col-md-2">
+                                        <label class="fix_spacing">Sunday</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Sunday_open">
+                                            <option selected>Opening
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+
+                                        <select class="form-select" aria-label="Default select example"
+                                            name="Sunday_close">
+                                            <option selected>Closing
+                                                Time</option>
+                                            <option value="4.00">4.00 am</option>
+                                            <option value="5.00">5.00 am</option>
+                                            <option value="6.00">6.00 am</option>
+
+                                            <option value="7.00 ">7.00 am</option>
+                                            <option value="8.00">8.00 am</option>
+                                            <option value="9.00">9.00 am</option>
+                                            <option value="10.00">10.00 am</option>
+                                            <option value="11.00">11.00 am</option>
+                                            <option value="12.00">12.00 am</option>
+                                            <option value="13.00">13.00 am</option>
+                                            <option value="14.00">14.00 am</option>
+                                            <option value="15.00">15.00 am</option>
+                                            <option value="16.00">16.00 am</option>
+                                            <option value="17.00">17.00 am</option>
+                                            <option value="18.00">18.00 am</option>
+                                            <option value="19.00">19.00 am</option>
+                                            <option value="20.00">20.00 am</option>
+                                            <option value="21.00">21.00 am</option>
+                                            <option value="22.00">22.00 am</option>
+                                            <option value="23.00">23.00 am</option>
+                                            <option value="20.00">00.00 am</option>
+
+
+
+
+
+
+
+
+
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="#" class="btn v7 mar-top-20">Add Facts</a>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="social_network">
+                                <h4><i class="icofont-ui-social-link"></i>Social Networks:</h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Facebook link (Optional)</label> {{form.Facebook_Link}}
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Pinterest (Optional)</label> {{form.Pinterest}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Twitter link (Optional)</label> {{form.Twitter_Link}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-left">
+                                        <div class="res-box mar-top-10">
+                                            <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                            <label for="remember">I've read and accept <a href="terms.html">terms &amp;
+                                                    conditions</a></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-right sm-left">
+                                        <button class="btn v8" type="submit">Preview</button>
+                                        <button class="btn v8" type="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+    <!-- Scroll to top starts-->
+    <span class="scrolltotop"><i class="ion-arrow-up-c"></i></span>
+    <!-- Scroll to top ends-->
+    </div>
+    <!--Page Wrapper ends-->
+
+
+
+
+
+</body>
+{% endblock content %}

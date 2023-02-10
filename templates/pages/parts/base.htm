@@ -1,0 +1,62 @@
+ {% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<!-- Mirrored from demo.lion-coders.com/html/listagram/home-v3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 13:38:15 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!-- /Added by HTTrack -->
+
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="LionCoders" />
+    <!-- Links -->
+    <link rel="icon" type="image/png" href="{% static 'images/loca.png'%}" />
+    <!-- google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link href="{% static 'css/plugin.css'%}" rel="stylesheet" />
+    <!-- style CSS -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" />
+    <!--color switcher css-->
+    <link rel="stylesheet" href="{% static 'css/switcher/skin-purple.css'%}" media="screen" id="style-colors" />
+
+
+
+    <script src="https://kit.fontawesome.com/f66c012c37.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!-- Document Title -->
+    <title>listagram </title>
+</head>
+<div class="preloader js-preloader">
+    <img src="{% static 'images/preloader.gif'%}" alt="...">
+</div>
+<!--Preloader ends-->
+<!--Page Wrapper starts-->
+<div class="page-wrapper">
+    {% include 'pages/parts/nav.htm' %} {% block content %} {% endblock content %}
+</div>
+
+{% include 'pages/parts/footer.htm' %}
+
+<script src="{% static 'js/plugin.js'%} "></script>
+<!--google maps-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_8C7p0Ws2gUu7wo0b6pK9Qu7LuzX2iWY&amp;libraries=places&amp;callback=initAutocomplete "></script>
+<!--Main js-->
+<script src="js/leaflet.min.js"></script>
+<script src="{% static 'js/maps.js'%} "></script>
+
+<script src="{% static 'js/infobox.min.js'%} "></script>
+<script src="{% static 'js/markerclusterer.js'%} "></script>
+
+<script src="{% static 'js/main.js'%} "></script>
+<script src="{% static 'js/leaflet-markercluster.min.js'%}"></script>
+<script src="{% static 'js/leaflet-gesture-handling.min.js'%}"></script>
+<script src="{% static 'js/leaflet-custom.js'%}"></script>
+<script src="{% static 'js/leaflet-autocomplete.js'%}"></script>
+<script src="{% static 'js/leaflet-control-geocoder.js'%}"></script>
+<!--Scripts ends-->

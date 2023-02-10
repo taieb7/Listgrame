@@ -1,0 +1,178 @@
+{% extends 'admin/base.htm' %}
+<!---->
+
+{% load static %}
+
+
+
+
+<!-- Mirrored from demo.lion-coders.com/html/listagram/db.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 13:53:58 GMT -->
+<!-- Added by HTTrack -->
+<!-- /Added by HTTrack -->
+
+{% block content %}
+
+<body>
+
+    <div class="dash-breadcrumb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dash-breadcrumb-content">
+                        <div class="dash-breadcrumb-left">
+                            <div class="breadcrumb-menu text-right sm-left">
+                                <ul>
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li>Dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btn v3" href="{% url 'add_listing' %}"><i class="ion-plus-round"></i>Add Listing </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="statistic-wrap">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="statistic__item item--green">
+                        <h2 class="counter-value">{{alll_isting}}</h2>
+                        <span class="desc">Published Listings</span>
+                        <div class="icon">
+                            <img src="{% static 'images/dashboard/map-of-roads.png'%}" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="statistic__item item--orange">
+                        <h2 class="counter-value">{{all_reviews}}</h2>
+                        <span class="desc">Total Reviews</span>
+                        <div class="icon">
+                            <img src="{% static 'images/dashboard/review.png'%}" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="statistic__item item--blue">
+                        <h2 class="counter-value">{{all_views}}</h2>
+                        <span class="desc">Total Views</span>
+                        <div class="icon">
+                            <img src="{% static 'images/dashboard/bar-chart.png'%}" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="statistic__item item--red">
+                        <h2 class="counter-value">{{users}}</h2>
+                        <span class="desc">All Users</span>
+                        <div class="icon">
+                            <img src="{% static 'images/dashboard/like.png'%}" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dash-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-md-12">
+                    <div class="popular-listing">
+                        <div class="act-title">
+                            <h5><i class="icofont-eye-alt"></i>Most Viewd Listings</h5>
+                        </div>
+                        <div class="viewd-item-wrap">
+                            {% for most_views in most_views%}
+                            <div class="most-viewed-item">
+                                <div class="most-viewed-img">
+                                    <a href="#"><img src="{% static 'images/single-listing/gallery-6.jpg'%}"
+                                            alt="..."></a>
+                                </div>
+                                <div class="most-viewed-detail">
+                                    <a class="category" href="#"><span class="list-bg ">
+                                            {% if most_views.Category == 'Hotel' %}
+                                            <span class="round-bg red"><i class="icofont-hotel"></i></span>{% endif %}
+                                            {% if most_views.Category == 'Fitness' %}
+                                            <span class="round-bg green"><i class="icofont-movie"></i></span>{% endif %}
+                                            {% if most_views.Category == 'café' %}
+                                            <span class="round-bg green"><i class="icofont-tea"></i></span> {% endif %}
+                                            {% if most_views.Category == 'Restaurant' %}
+                                            <span class="round-bg pink"><i class="icofont-restaurant"></i></span>
+                                            {% endif %}{% if most_views.Category == 'Education' %}
+                                            <span class="round-bg pink"><i
+                                                    class="icofont-education"></i></span>{% endif %}
+                                            {% if most_views.Category == 'Shopping' %}
+                                            <span class="round-bg red"><i
+                                                    class="icofont-shopping-cart"></i></span>{% endif %}
+
+
+
+
+
+
+
+
+
+                                        </span>{{most_views.Category}}</a>
+                                    <h3><a href="{% url 'detail' most_views.id %}">{{most_views.Listing_Title}}</a></h3>
+                                    <div class="rating-star">
+                                        <span>
+
+                                            <i
+                                                class="fa fa-star{% if  most_views.avg_rating < 0.5 %}-o{% elif most_views.avg_rating >= 0.5 and most_views.avg_rating < 1 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if most_views.avg_rating < 1.5 %}-o{% elif most_views.avg_rating >= 1.5 and most_views.avg_rating < 2 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if most_views.avg_rating < 2.5 %}-o{% elif most_views.avg_rating >= 2.5 and most_views.avg_rating < 3 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if most_views.avg_rating < 3.5 %}-o{% elif most_views.avg_rating >= 3.5 and most_views.avg_rating < 4 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if most_views.avg_rating < 4.5 %}-o{% elif most_views.avg_rating >= 4.5 and most_views.avg_rating < 5 %}-half-o {% endif %}"></i>
+                                        </span>
+
+                                        <div class="views">Views : <span>{{most_views.post_views}}</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="date">{{most_views.city}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12">
+                    <div class="act-title">
+                        <h5><i class="ion-ios-pulse"></i>All Users</h5>
+                    </div>
+
+                    {% for all_user in all_user %}
+                    <div class="recent-activity">
+
+                        <ul class="act-wrap">
+                            <li class="alert fade show">
+                                <i class="ion-ios-star-outline"></i>
+                                <span class="review-stat">{{all_user.username}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+
+
+{% endblock content %}

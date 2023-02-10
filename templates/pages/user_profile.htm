@@ -1,0 +1,294 @@
+{% extends 'pages/parts2/base2.htm' %} {% load static %} {% block content %}
+
+<body>
+    <div class="user-profile breadcrumb-section   "
+        style="background-image: url('{% static 'images/breadcrumb/breadcrumb-2.jpg' %}')" ;>
+        <div class=" overlay op-5 "></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="user-titlebar">
+                        <div class="user-avatar">
+                            {% if  profile.avatar == '' %}
+                            <img src="{% static 'images/dashboard/avatar-03.jpg'%}"
+                                class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                            {% else %}
+                            <img src="{{ profile.avatar.url }}"
+                                class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4" alt="Neil Portrait">
+                            {% endif %}
+                        </div>
+                        <div class="user-name">
+                            <h4>{{user.username}}</h4>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--User Profile ends-->
+    <!--User profile details starts-->
+    <div class="list-details-section section-padding mar-top-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="user_info_menu">
+                        <ul class="nav nav-tabs list-details-tab" id="lionTab" role="tablist">
+                            <li class="nav-item active">
+                                <a data-toggle="tab" href="#my-list">My Lists</a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-toggle="tab" href="#my-reviews">Reviews <span class="text-grey"></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-toggle="tab" href="#followers">Favourite <span
+                                        class="text-grey">({{fav.count}})</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a data-toggle="tab" href="#profile">profile</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-content mar-top-30" id="lionTabContent">
+                        <div class="tab-pane fade active show" id="my-list">
+                            <div class="row">
+
+
+                                {% for listings in listings %}
+                                <div class="col-md-6">
+                                    <div class="similar-item mar-bot-40">
+                                        <img src="{{listings.Gallery.url}}" alt="...">
+                                        <div class="similar-title-box">
+                                            <h5><a href="{% url 'detail' listings.id %}">{{listings.Listing_Title}}</a>
+                                            </h5>
+                                            <p><span class="price-amt">$89</span>/Avg</p>
+                                        </div>
+                                        <div class="rating-star">
+                                            <span>
+
+                                                <i
+                                                    class="fa fa-star{% if  listings.avg_rating < 0.5 %}-o{% elif listings.avg_rating >= 0.5 and listings.avg_rating < 1 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if listings.avg_rating < 1.5 %}-o{% elif listings.avg_rating >= 1.5 and listings.avg_rating < 2 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if listings.avg_rating < 2.5 %}-o{% elif listings.avg_rating >= 2.5 and listings.avg_rating < 3 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if listings.avg_rating < 3.5 %}-o{% elif listings.avg_rating >= 3.5 and listings.avg_rating < 4 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if listings.avg_rating < 4.5 %}-o{% elif listings.avg_rating >= 4.5 and listings.avg_rating < 5 %}-half-o {% endif %}"></i>
+                                            </span>
+
+
+                                        </div>
+
+                                        <p><i class="ion-ios-location"></i> 31st North St, Sydney, Australia</p>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="my-reviews">
+                            {% for Reviews in Reviews %}
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-item__post">
+                                        <div class="review-item__post-image">
+                                            <img class="review-item__image" src="{{Reviews.Gallery.url}}" alt="...">
+                                        </div>
+                                        <div class="review-item__post-content">
+                                            <h2 class="review-item__post-title">
+                                                <a href="#">{{Reviews.listing.Listing_Title}}</a>
+                                            </h2>
+
+
+                                            <div class="rating-star">
+                                                <span>
+
+                                                    <i
+                                                        class="fa fa-star{% if  Reviews.rating < 0.5 %}-o{% elif Reviews.rating >= 0.5 and Reviews.rating < 1 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if Reviews.rating < 1.5 %}-o{% elif Reviews.rating >= 1.5 and Reviews.rating < 2 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if Reviews.rating < 2.5 %}-o{% elif Reviews.rating >= 2.5 and Reviews.rating < 3 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if Reviews.rating < 3.5 %}-o{% elif Reviews.rating >= 3.5 and Reviews.rating < 4 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if Reviews.rating < 4.5 %}-o{% elif Reviews.rating >= 4.5 and Reviews.rating < 5 %}-half-o {% endif %}"></i>
+                                                </span>
+
+
+                                            </div>
+
+
+                                            <p class="review-item__post-location">
+                                                <i class="ion-ios-location"></i> Vienna 1010, Thailand
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="review-item__title">
+                                    Yammy Burger in Thailand.
+                                </h3>
+                                <p class="review-item__description">
+                                    I love the Burger here but it is so rare that I get to come here. Tasty Burger is
+                                    the best type of whole in the wall restaurant. The staff are really nice, and you
+                                    should be seated quickly.
+                                </p>
+                                <a href="#" class="rate-review float-left"><i class="icofont-thumbs-up"></i> Helpful
+                                    Review <span>2</span></a>
+                                <a href="#" class="rate-review float-right"><i class="icofont-reply"></i>Reply</a>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="tab-pane fade" id="followers">
+                            <div class="tab-content mar-tb-30">
+                                <div class="row">
+                                    {% for fave in fav %}
+                                    <div class="col-md-6">
+                                        <div class="similar-item mar-bot-40">
+                                            <img src="{{fave.Gallery.url}}" alt="...">
+                                            <div class="similar-title-box">
+                                                <h5><a href="{% url 'detail' fave.id %}">{{fave.Listing_Title}}</a></h5>
+                                                <p><span class="price-amt">$89</span>/Avg</p>
+                                            </div>
+                                            <div class="rating-star">
+                                                <span>
+                                                    <i
+                                                        class="fa fa-star{% if fave.avg_rating < 0.5 %}-o{% elif fave.avg_rating >= 0.5 and fave.avg_rating < 1 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if fave.avg_rating < 1.5 %}-o{% elif fave.avg_rating >= 1.5 and fave.avg_rating < 2 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if fave.avg_rating < 2.5 %}-o{% elif fave.avg_rating >= 2.5 and fave.avg_rating < 3 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if fave.avg_rating < 3.5 %}-o{% elif fave.avg_rating >= 3.5 and fave.avg_rating < 4 %}-half-o {% endif %}"></i>
+                                                    <i
+                                                        class="fa fa-star{% if fave.avg_rating < 4.5 %}-o{% elif fave.avg_rating >= 4.5 and fave.avg_rating < 5 %}-half-o {% endif %}"></i>
+                                                </span>
+
+
+                                            </div>
+
+                                            <p><i class="ion-ios-location"></i> 31st North St, Sydney, Australia</p>
+
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile">
+
+
+                            <div class="dash-content">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-13 ">
+                                            <div class="recent-activity">
+                                                <div class="act-title">
+                                                    <h5><i class="ion-person"></i>Profile Details</h5>
+                                                </div>
+                                                <div class="profile-wrap">
+                                                    <div class="row">
+                                                        <div class="col-md-8 offset-md-2 py-4">
+                                                            <div class="edit-profile-photo text-center">
+                                                                {% if  profile.avatar == '' %}
+
+
+                                                                <img src="{% static 'images/dashboard/avatar-03.jpg'%}"
+                                                                    class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4"
+                                                                    alt="Neil Portrait">
+                                                                {% else %}
+                                                                <img src="{{ profile.avatar.url }}"
+                                                                    class="user-avatar large-avatar rounded-circle mx-auto mt-n7 mb-4"
+                                                                    alt="Neil Portrait">
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="my-profile">
+                                                                <ul class="db-profile-info">
+                                                                    <li>
+                                                                        <h6>first_name :
+                                                                            <small>{{user.first_name}}</small>
+                                                                        </h6>
+
+                                                                    </li>
+                                                                    <li>
+                                                                        <h6>last_name :
+                                                                            <small>{{user.last_name}}</small>
+                                                                        </h6>
+
+                                                                    </li>
+                                                                    <li>
+
+                                                                        <h6>User Name :
+                                                                            <small>{{user.username}}</small>
+                                                                        </h6>
+
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <h6>Email Id : <small>{{user.email}}</small>
+                                                                        </h6>
+                                                                    </li>
+
+
+
+                                                                </ul>
+                                                                <a href="{% url 'profile' %}" class="btn v5">Edit
+                                                                    profile</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="listing-sidebar">
+                        <div class="boxed-widget">
+                            <h3><i class="icofont-contact-add"></i>Contact</h3>
+                            <div class="address">
+                                <span class="ion-ios-location"></span>
+                                <p> {{ profile.address|default:'' }}
+                                </p>
+                            </div>
+                            <div class="address">
+                                <span class="ion-ios-telephone"></span>
+                                <p> {{ profile.phone|default:'' }}</p>
+                            </div>
+                            <div class="address">
+                                <span class="ion-ios-email"></span>
+
+                                <p>{{ profile.user.email }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--User profile details ends-->
+    <!-- Scroll to top starts-->
+    <span class="scrolltotop"><i class="ion-arrow-up-c"></i></span>
+    <!-- Scroll to top ends-->
+    </div>
+    <!--Page Wrapper ends-->
+    <!--Footer Starts-->
+
+
+
+</body>
+
+{% endblock content %}

@@ -1,0 +1,124 @@
+{% extends 'admin/base.htm' %} {% load static %} {% block content %}
+
+<body>
+    <div class="dash-breadcrumb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dash-breadcrumb-content">
+                        <div class="dash-breadcrumb-left">
+                            <div class="breadcrumb-menu text-right sm-left">
+                                <ul>
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li class="active"><a href="#">Dashboard</a></li>
+                                    <li>Reviews</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btn v3" href="{% url 'add_listing' %}"><i class="ion-plus-round"></i>Add Listing </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dash-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="dash-review-wrap">
+                    <div class="act-title">
+                        <h5><i class="ion-ios-star-outline"></i> Received Reviews</h5>
+                    </div>
+                    <div class="db-review-item-wrap">
+                        {% for Reviews in Reviews%}
+
+                        <div class="single-review-item">
+                            <div class="customer-review_wrap">
+                                <div class="reviewer-img">
+                                    <img src="{{Reviews.Gallery.url}}" class="img-fluid" alt="...">
+                                    <p>{{Reviews.user.username}}</p>
+                                    <div class="rating-star">
+                                        <span>
+
+                                            <i
+                                                class="fa fa-star{% if  Reviews.rating < 0.5 %}-o{% elif Reviews.rating >= 0.5 and Reviews.rating < 1 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if Reviews.rating < 1.5 %}-o{% elif Reviews.rating >= 1.5 and Reviews.rating < 2 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if Reviews.rating < 2.5 %}-o{% elif Reviews.rating >= 2.5 and Reviews.rating < 3 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if Reviews.rating < 3.5 %}-o{% elif Reviews.rating >= 3.5 and Reviews.rating < 4 %}-half-o {% endif %}"></i>
+                                            <i
+                                                class="fa fa-star{% if Reviews.rating < 4.5 %}-o{% elif Reviews.rating >= 4.5 and Reviews.rating < 5 %}-half-o {% endif %}"></i>
+                                        </span>
+
+
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <div class="customer-content-wrap">
+                                    <div class="customer-content">
+                                        <div class="customer-review">
+                                            <h6>{{Reviews.listing.Listing_Title}}</h6>
+                                            <p>{{Reviews.created_at}}</p>
+                                        </div>
+                                    </div>
+                                    <p class="customer-text">{{Reviews.review_text}}
+
+                                    </p>
+                                    <div class="review-img">
+                                        <img src="{{Reviews.Gallery.url}}" alt="...">
+
+
+                                    </div>
+
+                                    <div class="like-btn mar-top-40">
+
+
+                                        <a href="{% url 'delete_reviews' Reviews.id %}" class="btn v5"><i
+                                                class="ion-android-delete"></i> Delete</a>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+                    <div class="modal fade" id="reply-review">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Reply To Review</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true"><i class="ion-ios-close-empty"></i></span></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-reply-review">
+                                        <textarea class="reply-review__textarea" rows="5"></textarea>
+
+                                    </div>
+
+                                    <div class="mar-top-30"><a href="single-listing-one.html" class="btn v1">Reply</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+{% endblock content %}

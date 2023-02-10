@@ -1,0 +1,104 @@
+{% extends 'admin/base.htm' %} {% load static %} {% block content %}
+
+<body>
+    <div class="dash-breadcrumb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dash-breadcrumb-content">
+                        <div class="dash-breadcrumb-left">
+                            <div class="breadcrumb-menu text-right sm-left">
+                                <ul>
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li class="active"><a href="#">Listings</a></li>
+                                    <li>My Listings</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btn v3" href="{% url 'add_listing' %}"><i class="ion-plus-round"></i>Add Listing </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dash-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="recent-activity my-listing">
+                        <div class="act-title">
+                            <h5><i class="ion-social-buffer-outline"></i> My Listings</h5>
+                        </div>
+
+                        <div class="viewd-item-wrap">
+
+                            {% for all_listings in all_listings %}
+                            <div class="most-viewed-item">
+                                <div class="most-viewed-img">
+                                    <a href="#"><img src="{{all_listings.Gallery.url}}" alt="..."></a>
+                                </div>
+                                <div class="most-viewed-detail">
+                                    {% if all_listings.Category == 'Hotel' %}
+                                    <span class="round-bg red"><i class="icofont-hotel"></i></span>{% endif %}
+                                    {% if all_listings.Category == 'Fitness' %}
+                                    <span class="round-bg green"><i class="icofont-movie"></i></span>{% endif %}
+                                    {% if all_listings.Category == 'café' %}
+                                    <span class="round-bg green"><i class="icofont-tea"></i></span> {% endif %}
+                                    {% if all_listings.Category == 'Restaurant' %}
+                                    <span class="round-bg pink"><i class="icofont-restaurant"></i></span>
+                                    {% endif %}{% if all_listings.Category == 'Education' %}
+                                    <span class="round-bg pink"><i class="icofont-education"></i></span>{% endif %}
+                                    {% if all_listings.Category == 'Shopping' %}
+                                    <span class="round-bg red"><i class="icofont-shopping-cart"></i></span>{% endif %}
+
+                                    <h3><a href="{% url 'detail' all_listings.id %}">{{all_listings.Listing_Title}}</a>
+                                    </h3>
+                                    <p class="list-address"><i class="icofont-google-map"></i>42 Albemarle st.
+                                        Mayfair,London</p>
+
+                                    <div class="ratings">
+                                        <div class="rating-star">
+                                            <span>
+
+                                                <i
+                                                    class="fa fa-star{% if  all_listings.avg_rating < 0.5 %}-o{% elif all_listings.avg_rating >= 0.5 and all_listings.avg_rating < 1 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if all_listings.avg_rating < 1.5 %}-o{% elif all_listings.avg_rating >= 1.5 and all_listings.avg_rating < 2 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if all_listings.avg_rating < 2.5 %}-o{% elif all_listings.avg_rating >= 2.5 and all_listings.avg_rating < 3 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if all_listings.avg_rating < 3.5 %}-o{% elif all_listings.avg_rating >= 3.5 and all_listings.avg_rating < 4 %}-half-o {% endif %}"></i>
+                                                <i
+                                                    class="fa fa-star{% if all_listings.avg_rating < 4.5 %}-o{% elif all_listings.avg_rating >= 4.5 and all_listings.avg_rating < 5 %}-half-o {% endif %}"></i>
+                                            </span>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="views">Views : <span>{{all_listings.post_views}}</span></div>
+                                </div>
+                                <div class="listing-button">
+                                    <a href="{% url 'update' all_listings.id %}" class="btn v4 "><i
+                                            class="ion-edit"></i>
+                                        Edit</a>
+                                    <a href="{% url 'delete' all_listings.id %}" class="btn v5"><i
+                                            class="ion-android-delete"></i> Delete</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+{% endblock content %}

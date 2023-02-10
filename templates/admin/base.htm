@@ -1,0 +1,49 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <!-- Metas -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="LionCoders" />
+        <!-- Links -->
+        <link rel="icon" type="image/png" href="#" />
+        <!-- google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+        <!-- Plugins CSS -->
+        <link href="{% static 'css/plugin.css'%}" rel="stylesheet" />
+        <!-- Perfect scrollbar CSS-->
+        <link href="{% static 'css/perfect-scrollbar.css'%}" rel="stylesheet">
+        <!-- style CSS -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/f66c012c37.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/png" href="{% static 'images/loca.png'%}" />
+
+        <!-- Dashboard CSS -->
+        <link href="{% static 'css/dashboard.css'%}" rel="stylesheet" />
+        <!--color switcher css-->
+        <link rel="stylesheet" href="{% static 'css/switcher/skin-aqua.css'%}" media="screen" id="style-colors" />
+        <!-- Document Title -->
+        <title>listagram</title>
+
+    </head>
+    <div class="page-wrapper">
+        {% include 'admin/parts/side.htm' %}
+        <div class="dash-content-wrap">
+            {% include 'admin/parts/header.htm' %} {% block content %} {% endblock content %}
+            {% include 'admin/parts/footer.htm' %}
+        </div>
+    </div>
+
+    <script src="{% static 'js/plugin.js'%}"></script>
+    <!--Perfect Scrollbar JS-->
+    <script src="{% static 'js/perfect-scrollbar.min.js'%}"></script>
+    <!-- Main JS-->
+    <script src="{% static 'js/main.js'%}"></script>
+    <!-- Dashboard JS-->
+    <script src="{% static 'js/dashboard.js'%}"></script>
+
+</html>

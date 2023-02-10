@@ -1,0 +1,161 @@
+{% extends 'pages/parts2/base2.htm' %} {% load static %} {% block content %}
+
+<body>
+    <div class="breadcrumb-section" style="background-image: url('{% static 'images/breadcrumb/breadcrumb-2.jpg' %}')"
+        ;>
+        <div class="overlay op-5"></div>
+        <div class="container">
+            <div class="row align-items-center  pad-top-80">
+                <div class="col-md-6 col-12">
+                    <div class="breadcrumb-menu">
+                        <h2 class="page-title">Locations</h2>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="breadcrumb-menu text-right sm-left">
+                        <ul>
+                            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="{% url 'alllocation' %}">Locations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Breadcrumb section ends-->
+    <!--Locations section starts-->
+    <div class="popular-cities pad-bot-50 section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="popular-item mar-bot-30">
+                        <div class="single-place">
+                            <img class="single-place-image" src="{% static 'images/category/Sfax.jpg '%}"
+                                alt="place-image">
+                            <div class="single-place-content">
+                                <h2 class="single-place-title">
+                                    <a href="{% url 'all_location' 'Sfax' %}">Sfax</a>
+                                </h2>
+                                <ul class="single-place-list">
+                                    <li><span>{{Sfax}}</span> Listing</li>
+                                </ul>
+                                <a class="btn v6 explore-place" href="{% url 'all_location' 'Sfax' %}">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="popular-item mar-bot-30">
+                        <div class="single-place">
+                            <img class="single-place-image" src=" {% static 'images/category/sousse.png'%}"
+                                alt="place-image">
+                            <div class="single-place-content">
+                                <h2 class="single-place-title">
+                                    <a href="{% url 'all_location' 'Sousse' %}">Sousse</a>
+                                </h2>
+                                <ul class="single-place-list">
+                                    <li><span>{{Sousse}}</span> Listing</li>
+                                </ul>
+                                <a class="btn v6 explore-place" href="{% url 'all_location' 'Sousse' %}">Explore</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="popular-item mar-bot-30">
+                        <div class="single-place">
+                            <img class="single-place-image" src="{% static 'images/category/tunis.jpg '%}"
+                                alt="place-image">
+                            <div class="single-place-content">
+                                <h2 class="single-place-title">
+                                    <a href="{% url 'all_location' 'Tunis' %}">Tunis</a>
+                                </h2>
+                                <ul class="single-place-list">
+                                    <li><span>{{Tunis}}</span> Listing</li>
+                                </ul>
+                                <a class="btn v6 explore-place" href="{% url 'all_location' 'Tunis' %}">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="popular-item mar-bot-30">
+                        <div class="single-place">
+                            <img class="single-place-image" src=" {% static 'images/category/hammemat.jpg'%}"
+                                alt="place-image">
+                            <div class="single-place-content">
+                                <h2 class="single-place-title">
+                                    <a href="{% url 'all_location' 'Hammemat' %}">Hammemat</a>
+                                </h2>
+                                <ul class="single-place-list">
+                                    <li><span>{{Hammemat}}</span> Listing</li>
+                                </ul>
+                                <a class="btn v6 explore-place" href="{% url 'all_location' 'Hammemat' %}">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="popular-item mar-bot-30">
+                        <div class="single-place">
+                            <img class="single-place-image" src="{% static 'images/category/Monastir.jpg'%}"
+                                alt="place-image">
+                            <div class="single-place-content">
+                                <h2 class="single-place-title">
+                                    <a href="{% url 'all_location' 'Monastir' %}">Monastir</a>
+                                </h2>
+                                <ul class="single-place-list">
+                                    <li><span>{{Monastir}}</span> Listing</li>
+                                </ul>
+                                <a class="btn v6 explore-place" href="{% url 'all_location' 'Monastir' %}">Explore</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="popular-item mar-bot-30">
+                        <div class="single-place">
+                            <img class="single-place-image" src=" {% static 'images/category/Mahdia.jpg'%}"
+                                alt="place-image">
+                            <div class="single-place-content">
+                                <h2 class="single-place-title">
+                                    <a href="#">Mahdia</a>
+                                </h2>
+                                <ul class="single-place-list">
+                                    <li><span>{{Mahdia}}</span> Listing</li>
+                                </ul>
+                                <a class="btn v6 explore-place" href=" {% url 'all_location' 'Mahdia' %}">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span class="scrolltotop"><i class="ion-arrow-up-c"></i></span>
+
+    </div>
+
+    <div class="color-switcher hide-color-switcher">
+        <a class="switcher-button"><i class="ion-android-settings"></i></a>
+        <div class="color-switcher-title text-center">
+            <h5>Switch Colors</h5>
+        </div>
+        <div class="color-list text-center">
+            <a class="color green-theme" title="green"></a>
+            <a class="color red-theme" title="red"></a>
+            <a class="color blue-theme" title="blue"></a>
+            <a class="color orange-theme" title="orange"></a>
+            <a class="color pink-theme" title="pink"></a>
+            <a class="color purple-theme" title="purple"></a>
+            <a class="color violet-theme" title="violet"></a>
+            <a class="color aqua-theme" title="aqua"></a>
+        </div>
+    </div>
+
+</body>
+
+{% endblock content %}

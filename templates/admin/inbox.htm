@@ -1,0 +1,79 @@
+{% extends 'admin/base.htm' %}
+<!---->
+
+{% load static %}
+
+
+
+
+<!-- Mirrored from demo.lion-coders.com/html/listagram/db.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Jul 2022 13:53:58 GMT -->
+<!-- Added by HTTrack -->
+<!-- /Added by HTTrack -->
+
+{% block content %}
+
+<body>
+
+
+
+
+    <div class="dash-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inbox-wrap">
+                        <div class="act-title">
+                            <h5><i class="ion-android-mail"></i> Inbox</h5>
+                        </div>
+                        <div class="au-inbox-wrap ">
+                            <div class="au-message ">
+                                <div class="au-message-list">
+                                    <div class="au-message__item unread">
+                                        {% for notifications in notifications %}
+                                        <div class="au-message__item-inner">
+                                            <div class="au-message__item-text">
+                                                <div class="avatar-wrap">
+                                                    <div class="avatar">
+                                                        <img src="{% static 'images/dashboard/avatar-01.jpg' %}" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="text">
+                                                    <h5 class="{% if not notifications.is_seen %}name{% endif %}">
+                                                        {{notifications.user.username}}
+                                                    </h5>
+                                                    <p>{{notifications.message}}</p>
+
+
+                                                </div>
+                                            </div>
+
+
+                                            <div class="au-message__item-time">
+
+                                                <span>{{notifications.date}}</span>
+                                                <a href="{% url 'ShowNotifications' notifications.id  %}"
+                                                    class="btn v5">view</a>
+
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+{% endblock content %}

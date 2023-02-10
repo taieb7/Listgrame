@@ -1,0 +1,55 @@
+{% extends 'pages/parts/base.htm' %} {% load static %} {% block content %}
+
+
+<body>
+    <!--Page Wrapper starts-->
+
+    <!--error  start-->
+    <div class="error-section section-padding mar-top-80 pad-bot-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3  error-text text-center">
+                    <div class="error-content">
+                        <i class="ion-sad-outline"></i>
+                        <h4>Ohh! Page Not Found</h4>
+                        <p>Perhaps searching can help or go back to <a href="home-v1.html">Homepage</a> </p>
+                    </div>
+                    <div class="error-search-container">
+                        <form action="http://demo.lion-coders.com/action_page.php">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="ion-ios-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--error ends-->
+    <!-- Scroll to top starts-->
+    <span class="scrolltotop"><i class="ion-arrow-up-c"></i></span>
+    <!-- Scroll to top ends-->
+    <!--Page Wrapper ends-->
+
+
+
+    <!--Color switcher starts-->
+    <div class="color-switcher hide-color-switcher">
+        <a class="switcher-button"><i class="ion-android-settings"></i></a>
+        <div class="color-switcher-title text-center">
+            <h5>Switch Colors</h5>
+        </div>
+        <div class="color-list text-center">
+            <a class="color green-theme" title="green"></a>
+            <a class="color red-theme" title="red"></a>
+            <a class="color blue-theme" title="blue"></a>
+            <a class="color orange-theme" title="orange"></a>
+            <a class="color pink-theme" title="pink"></a>
+            <a class="color purple-theme" title="purple"></a>
+            <a class="color violet-theme" title="violet"></a>
+            <a class="color aqua-theme" title="aqua"></a>
+        </div>
+    </div>
+
+</body>
+
+{% endblock content %}

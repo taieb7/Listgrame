@@ -1,0 +1,140 @@
+ {% extends 'pages/parts2/base2.htm' %} {% load static %} {% block content %}
+
+
+
+
+<body>
+    <!--Preloader starts-->
+    <div class="preloader js-preloader">
+        <img src="{% static 'images/preloader.gif'%}" alt="...">
+    </div>
+
+    <div class="page-wrapper">
+
+        <div class="breadcrumb-section" style="background-image: url('{% static 'images/breadcrumb/breadcrumb-2.jpg' %}')" ;>
+            <div class=" overlay op-5 "></div>
+            <div class="container ">
+                <div class="row align-items-center pad-top-80 ">
+                    <div class="col-md-6 col-12 ">
+                        <div class="breadcrumb-menu ">
+                            <h2 class="page-title ">Category</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 ">
+                        <div class="breadcrumb-menu text-right sm-left ">
+                            <ul>
+                                <li class="active "><a href="{% url 'index' %} ">Home</a></li>
+                                <li><a href="{% url 'allCategory' %} ">Category</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Breadcrumb section ends-->
+        <!--Category section starts-->
+        <div class="popular-catagory pad-bot-50 section-padding ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-md-4 ">
+                        <a href=" {% url 'categori' 'Fitness' %} ">
+                            <div class="popular-catagory-content v2 ">
+                                <div class="popular-catagory-img ">
+                                    <img src="{% static 'images/category/Fitness.png'%} " alt="... " class="img_fluid ">
+                                    <div class="overlay op-5 "></div>
+                                </div>
+                                <div class="cat-content ">
+                                    <i class="icofont-travelling "></i>
+                                    <h4 class="title ">Fitness</h4>
+                                    <span>{{Fitness}} Listings</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="{% url 'categori' 'Shopping' %}">
+                            <div class="popular-catagory-content v2 ">
+                                <div class="popular-catagory-img ">
+                                    <img src="{% static 'images/category/cat_2.jpg'%} " alt="... " class="img_fluid ">
+                                    <div class="overlay op-5 "></div>
+                                </div>
+                                <div class="cat-content ">
+                                    <i class="icofont-cart-alt "></i>
+                                    <h4 class="title ">Shopping</h4>
+                                    <span>{{Shopping}} Listings</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="{% url 'categori' 'Restaurant' %}">
+                            <div class="popular-catagory-content v2 ">
+                                <div class="popular-catagory-img ">
+                                    <img src="{% static 'images/category/cat_1.jpg'%} " alt="... " class="img_fluid ">
+                                    <div class="overlay op-5 "></div>
+                                </div>
+                                <div class="cat-content ">
+                                    <i class="icofont-restaurant "></i>
+                                    <h4 class="title ">Restaurant</h4>
+                                    <span>{{Restaurant}} Listings</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="{% url 'categori' 'Hotel' %}">
+                            <div class="popular-catagory-content v2 ">
+                                <div class="popular-catagory-img ">
+                                    <img src="{% static 'images/category/cat-1.jpg'%} " alt="... " class="img_fluid ">
+                                    <div class="overlay op-5 "></div>
+                                </div>
+                                <div class="cat-content ">
+                                    <i class="icofont-hotel "></i>
+                                    <h4 class="title ">Hotel</h4>
+                                    <span> {{Hotel}} Listings</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="{% url 'categori' 'café' %} ">
+                            <div class="popular-catagory-content v2 ">
+                                <div class="popular-catagory-img ">
+                                    <img src="{% static 'images/category/cat_3.jpg'%} " alt="... " class="img_fluid ">
+                                    <div class="overlay op-5 "></div>
+                                </div>
+                                <div class="cat-content ">
+                                    <i class="icofont-coffee-mug "></i>
+                                    <h4 class="title ">Food &amp; Drink</h4>
+                                    <span>{{café}} Listings</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 ">
+                        <a href="{% url 'categori' 'Education' %}">
+                            <div class="popular-catagory-content v2 ">
+                                <div class="popular-catagory-img ">
+                                    <img src="{% static 'images/category/cat_4.jpg'%} " alt="... " class="img_fluid ">
+                                    <div class="overlay op-5 "></div>
+                                </div>
+                                <div class="cat-content ">
+                                    <i class="icofont-bank-alt "></i>
+                                    <h4 class="title "> Education</h4>
+                                    <span> {{Education}} Listings</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="scrolltotop "><i class="ion-arrow-up-c "></i></span>
+
+    </div>
+
+
+</body>
+
+{% endblock content %}

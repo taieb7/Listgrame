@@ -1,0 +1,89 @@
+ {% extends 'admin/base.htm' %} {% load static %} {% block content %}
+
+
+
+<body>
+    <div class="dash-breadcrumb">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="dash-breadcrumb-content">
+                        <div class="dash-breadcrumb-left">
+                            <div class="breadcrumb-menu text-right sm-left">
+                                <ul>
+                                    <li class="active"><a href="#">Home</a></li>
+                                    <li>My Profile</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a class="btn v3" href="{% url 'add_listing' %}"><i class="ion-plus-round"></i>Add Listing </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dash-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="recent-activity">
+                        <div class="act-title">
+                            <h5><i class="ion-person"></i>Profile Details</h5>
+                        </div>
+                        <div class="profile-wrap">
+                            <div class="row">
+                                <div class="col-md-8 offset-md-2 py-4">
+                                    <div class="edit-profile-photo text-center">
+                                        <img src="{% static  'images/clients/reviewer-4.png'%}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="my-profile">
+                                        <ul class="db-profile-info">
+                                            <li>
+                                                <h6>First Name :</h6>
+                                                <span>Steve </span>
+                                            </li>
+                                            <li>
+                                                <h6>Last Name :</h6>
+                                                <span> Austin</span>
+                                            </li>
+                                            <li>
+                                                <h6>Email Id :</h6>
+                                                <span> steve_aus@mail.com</span>
+                                            </li>
+                                            <li>
+                                                <h6>Phone :</h6>
+                                                <span> +44 20 7336 8898</span>
+                                            </li>
+                                            <li>
+                                                <h6>Password :</h6>
+                                                <span>123456</span>
+                                            </li>
+                                            <li>
+                                                <h6>Address :</h6>
+                                                <span> 864 W. Walnut Ave. Avon, IN 46123 St James Pl, Brooklyn</span>
+                                            </li>
+                                            <li>
+                                                <h6>Social Profile :</h6>
+                                                <ul class="social-profile">
+                                                    <li class="bg-fb"><a href="https://www.facebook.com/"><i class="ion-social-facebook"></i></a></li>
+                                                    <li class="bg-tt"><a href="https://www.twitter.com/"><i class="ion-social-twitter"></i></a></li>
+                                                    <li class="bg-ig"><a href="https://www.instagram.com/"><i class="ion-social-instagram"></i></a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                        <a href="db-edit-profile.html" class="btn v5">Edit profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
